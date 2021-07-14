@@ -56,8 +56,8 @@ var arr = [
 ];
 
 function mutateArray(a) {
-  const newArr = a.map(e =>{
-    let {guest_booking:{room_no,some_array:some_total}, ...guest} = e
+  const newArr = a.filter(el => el.guest_type==="guest").map(el =>{
+    let {guest_booking:{room_no,some_array:some_total}, ...guest} = el
     some_total = some_total.reduce((a,b )=> a+b)
     return Object.assign(guest,{room_no,some_total})
     })
