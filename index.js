@@ -60,10 +60,9 @@ function mutateArray(a) {
     let {guest_booking:{room_no,some_array:some_total}, ...guest} = el
     some_total = some_total.reduce((a,b )=> a+b)
     return Object.assign(guest,{room_no,some_total})
-    })
+    }).sort((a, b) =>  (b.last_name < a.last_name) ? 1 : -1)
     return newArr
-
-}
+  }
 
 $(document).ready(function() {
     $('#originalArray').html(JSON.stringify(arr, null, 2));
