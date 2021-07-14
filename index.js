@@ -57,10 +57,12 @@ var arr = [
 
 function mutateArray(a) {
   const newArr = a.map(e =>{
-    const {guest_booking, ...guest} = e
-    return Object.assign(guest,guest_booking)
+    let {guest_booking:{room_no,some_array:some_total}, ...guest} = e
+    some_total = some_total.reduce((a,b )=> a+b)
+    return Object.assign(guest,{room_no,some_total})
     })
-    return newArr;
+    return newArr
+
 }
 
 $(document).ready(function() {
